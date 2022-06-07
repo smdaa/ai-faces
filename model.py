@@ -8,8 +8,10 @@ import pytorch_lightning as pl
 LATENT_DIM = 64
 
 # hyperparameters
-lr = 1e-3
-weight_decay = 1e-3
+lr = 1e-5
+#weight_decay = 1e-3
+momentum = 0.9
+
 
 class Autoencoder(pl.LightningModule):
     def __init__(self):
@@ -38,7 +40,6 @@ class Autoencoder(pl.LightningModule):
             nn.Linear(in_features=8192, out_features=LATENT_DIM),
             nn.ReLU()
         )
-
 
         self.unbottleneck = nn.Sequential(
             nn.Linear(in_features=LATENT_DIM, out_features=8192),
@@ -102,7 +103,7 @@ class Autoencoder(pl.LightningModule):
         return loss
 
     def configure_optimizers(self):
-        optimizer = optim.Adam(self.parameters(), lr=lr, weight_decay=weight_decay)
+        optimizer = optim.SGD(self.parameters(), lr=lr, momentum=momentum)
         return optimizer
 
     def training_step(self, batch, batch_idx):

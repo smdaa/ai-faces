@@ -16,8 +16,8 @@ from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from model import *
 
 # hyperparameters
-batch_size = 64
-epochs = 1000
+batch_size = 128
+epochs = 2000
 
 
 def recontruct_image(x_train, x_test, model):
@@ -82,7 +82,7 @@ test_loader = torch.utils.data.DataLoader(
 model = Autoencoder()
 logger = TensorBoardLogger('cae_logs', name="cae")
 trainer = pl.Trainer(accelerator='gpu', devices=1, max_epochs=epochs, logger=logger, callbacks=[
-                     EarlyStopping(monitor="valid_loss", mode="min", patience=10)])
+                     EarlyStopping(monitor="valid_loss", mode="min", patience=50)])
 
 # train model
 trainer.fit(model, train_loader, test_loader)
