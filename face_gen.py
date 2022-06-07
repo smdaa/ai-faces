@@ -4,7 +4,7 @@ import numpy as np
 
 device = torch.device("cuda")
 
-num_faces = 200
+num_faces = 10
 
 # load trained model
 model = Autoencoder()
@@ -24,7 +24,6 @@ i = 0
 for data in data_loader:
     x_data = data[0].float()
     x_data = x_data.to(device)
-
     temp = model.encode(x_data)
     temp = temp.cpu().detach().numpy()
     x_enc[i:i+temp.shape[0], :] = temp 

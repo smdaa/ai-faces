@@ -16,8 +16,8 @@ from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from model import *
 
 # hyperparameters
-batch_size = 8
-epochs = 100
+batch_size = 64
+epochs = 1000
 
 
 def recontruct_image(x_train, x_test, model):
