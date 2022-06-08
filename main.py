@@ -48,7 +48,7 @@ class Window():
 
         for i in range(num_params):
             slider = Scale(master, from_=slider_from_value, to=slider_to_value, orient=VERTICAL,
-                           variable=self.ws_values[i], command=self.updateCanvas, resolution=0.01, bg='white', troughcolor='black', relief=SUNKEN, length=100)
+                           variable=self.ws_values[i], command=self.updateCanvas, resolution=0.01, length=100)
             self.ws.append(slider)
 
         for i in range(num_params):
