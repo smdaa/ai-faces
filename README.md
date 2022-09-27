@@ -23,7 +23,7 @@ The PCA subspace of the lower dimension vectors is then calculated, and each kno
 
 The most important feature seems to be background color, which makes sence because it takes a considerable part of the picture. The second most important feature is hair lenght / gender since both of them are kind of correlated. some other features control orientation and lighting and facial properties.
 
-Sometimes, the result can be quite scary:
+Sometimes, the result can be quite scary: 
 <center> <img src="ghost.png" alt="drawing" width="250"/> </center>
 
 ### Dependencies
