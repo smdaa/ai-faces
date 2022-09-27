@@ -55,7 +55,7 @@ class Autoencoder(pl.LightningModule):
         self.deconvnet2 = nn.Sequential(
             nn.ConvTranspose2d(in_channels=64, out_channels=32,
                                kernel_size=5, stride=3, padding=3, output_padding=(2, 1)),
-            nn.ReLU()
+            nn.ReLU() 
         )
 
         self.deconvnet3 = nn.Sequential(
